@@ -1,0 +1,71 @@
+<html>
+<body >
+<style>
+body {
+  background-image: url('music.jpg');
+  background-repeat: no-repeat;
+	background-attachment: fixed;
+  background-size: 100% 100%;
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+<head>
+<title>Audio</title>
+
+</head>
+<audio id="audio" controls>
+  <source src="sairat.mp3" type="audio/mpeg">
+
+</audio>
+<h3>Click on the play button to play a Music:</h3>
+<button id="playPauseBTN" onclick="playPause()" class="button" >play</button>
+<button onclick="stop()" class="button">stop</button>
+
+<a href="sairat.mp3" download="sairat" > <button class="button">Downlod Music</button>
+</a>
+
+
+
+<script>
+var audio=document.getElementById('audio');
+var playPauseBTN=document.getElementById('playPauseBTN');
+var count =0;
+
+function playPause(){
+if (count == 0)
+{
+count=1;
+audio.play();
+playPauseBTN.innerHTML="pause";
+}
+else
+{
+count=0;
+audio.pause();
+playPauseBTN.innerHTML="play";
+}
+}
+
+function stop()
+{
+playPause();
+audio.pause();
+audio.currentTime=0;
+playPauseBTN.innerHTML="play";
+}
+
+</script>
+
+</body>
+</html>
